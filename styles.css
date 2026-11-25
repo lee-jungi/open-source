@@ -1,0 +1,1207 @@
+:root {
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-accent-soft: #f0f9ff;
+  --bg-green-soft: #ecfdf5;
+  --bg-amber-soft: #fffbeb;
+  --bg-rose-soft: #fff1f2;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --border-light: #e2e8f0;
+  --border-focus: #38bdf8;
+
+  --brand-primary: #0284c7;
+  --brand-primary-hover: #0369a1;
+  --brand-sky: #0ea5e9;
+  --brand-emerald: #059669;
+  --brand-amber: #d97706;
+  --brand-rose: #e11d48;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 22px 48px rgba(15, 23, 42, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: radial-gradient(circle at top right, #e0f2fe 0%, #f8fafc 38%, #f8fafc 100%);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.view {
+  min-height: 100vh;
+}
+
+.zh-inline {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.zh-block {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted);
+  font-size: 0.92em;
+}
+
+/* 버튼 공통 / 按钮通用 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.btn:focus-visible,
+.chip:focus-visible,
+.exercise-card:focus-visible,
+.icon-close-btn:focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.btn-lg {
+  padding: 15px 34px;
+  font-size: 1.08rem;
+  border-radius: 14px;
+}
+
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 0.86rem;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.26);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(2, 132, 199, 0.32);
+}
+
+.btn-secondary {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #a7f3d0;
+}
+
+.btn-secondary:hover {
+  background: #d1fae5;
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: var(--text-primary);
+  border-color: var(--border-light);
+}
+
+.btn-outline:hover {
+  background: var(--bg-subtle);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.btn .zh-inline {
+  color: inherit;
+  opacity: 0.92;
+  font-weight: 600;
+}
+
+.btn-divider {
+  opacity: 0.65;
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* 1. 입장 화면 / 欢迎入场页 */
+#view-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 620px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.brand-logo {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 20px;
+}
+
+.brand-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--bg-accent-soft);
+  color: var(--brand-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.welcome-title {
+  margin: 0 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.welcome-title .ko-main {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.welcome-title .bilingual-sub {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.welcome-desc {
+  margin: 0 auto 28px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.96rem;
+}
+
+.welcome-desc .zh {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.welcome-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.highlight-pill {
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.highlight-pill strong {
+  font-size: 1.2rem;
+  color: var(--brand-primary);
+}
+
+.highlight-pill span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* 2. 이용수칙 화면 / 使用须知页 */
+#view-etiquette {
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px 108px;
+}
+
+.etiquette-layout {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.step-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--bg-accent-soft);
+  color: var(--brand-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.page-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.45rem, 2.5vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.title-zh {
+  font-size: 0.76em;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.etiquette-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.etiquette-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.etiquette-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.etiquette-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-accent-soft);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+}
+
+.etiquette-num {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  background: var(--bg-subtle);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.etiquette-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.4;
+}
+
+.etiquette-card h3 span {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.etiquette-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.etiquette-card p .zh-block {
+  margin-top: 4px;
+  font-size: 0.83rem;
+}
+
+.etiquette-notice {
+  background: var(--bg-surface);
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.96rem;
+}
+
+.checkbox-label input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
+}
+
+.etiquette-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* 우측 하단 다음 버튼 고정 배치 / 右下角固定下一步按钮 */
+.etiquette-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--border-light);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.btn-next {
+  margin-left: auto;
+  min-width: 170px;
+  padding: 12px 24px;
+}
+
+/* 3. 운동 선택 화면 / 训练动作列表页 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.topbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+}
+
+.mini-logo {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+}
+
+.mini-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-text strong {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.brand-text small {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--brand-emerald);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.catalog-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+}
+
+.catalog-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 11px 38px 11px 40px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  background: var(--bg-surface);
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--brand-sky);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.16);
+}
+
+.search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.filter-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  min-width: 82px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border: 1px solid var(--border-light);
+  background: var(--bg-page);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  background: #e2e8f0;
+  color: var(--text-primary);
+}
+
+.chip--active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.chip--active:hover {
+  background: var(--brand-primary-hover);
+  color: #ffffff;
+}
+
+.catalog-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.result-summary {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* 정사각형 타일 그리드 / 方形动作卡片网格 */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.exercise-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-4px);
+  border-color: #7dd3fc;
+  box-shadow: var(--shadow-md);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.type-pill,
+.part-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.type-pill--machine {
+  background: var(--bg-accent-soft);
+  color: var(--brand-primary);
+}
+
+.type-pill--freeweight {
+  background: var(--bg-green-soft);
+  color: var(--brand-emerald);
+}
+
+.part-pill {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+.card-illustration {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  min-height: 0;
+}
+
+.card-illustration svg {
+  width: 100%;
+  height: 100%;
+  max-height: 142px;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.card-title-ko {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.card-title-zh {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  line-height: 1.25;
+}
+
+.card-routine-mark {
+  position: absolute;
+  top: 42px;
+  right: 12px;
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+/* 빈 검색 상태 / 空结果状态 */
+.empty-state {
+  text-align: center;
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 48px 20px;
+}
+
+.empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+}
+
+.empty-state p {
+  margin: 0 0 18px;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+}
+
+/* 모달 / 详情弹窗 */
+.modal-backdrop,
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.modal-panel {
+  width: 100%;
+  max-width: 860px;
+  max-height: 92vh;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.modal-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.icon-close-btn {
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+}
+
+.icon-close-btn:hover {
+  background: var(--bg-subtle);
+}
+
+.modal-body {
+  padding: 22px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-hero {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.modal-illustration {
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(145deg, #f8fafc, #f0f9ff);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-illustration svg {
+  width: 100%;
+  height: 100%;
+}
+
+.modal-title {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.modal-subtitle {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+}
+
+.muscle-card {
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.muscle-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.87rem;
+}
+
+.muscle-row .label {
+  color: var(--text-muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.guide-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.guide-box {
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--bg-surface);
+}
+
+.guide-box--setup {
+  background: #f8fafc;
+}
+
+.guide-box--caution {
+  background: var(--bg-rose-soft);
+  border-color: #fecdd3;
+}
+
+.guide-box--breath {
+  background: var(--bg-amber-soft);
+  border-color: #fde68a;
+}
+
+.guide-box h3 {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.guide-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.guide-list .zh-block {
+  font-size: 0.82rem;
+}
+
+.guide-text {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* 세트 휴식 타이머 / 休息计时器 */
+.timer-bar {
+  background: var(--bg-accent-soft);
+  border: 1px solid #bae6fd;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.timer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.timer-info strong {
+  font-size: 0.9rem;
+}
+
+.timer-status {
+  font-size: 0.8rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.timer-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.timer-display {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  min-width: 68px;
+}
+
+.timer-presets {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.preset-btn {
+  border: 1px solid #bae6fd;
+  background: #ffffff;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 5px 9px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.preset-btn--active {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+}
+
+.modal-footer {
+  padding: 14px 22px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-page);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* 루틴 서랍 / 训练计划抽屉 */
+.drawer-backdrop {
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.drawer-panel {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.drawer-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.12rem;
+}
+
+.drawer-sub {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.routine-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.routine-item {
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: var(--bg-page);
+}
+
+.routine-item-info {
+  cursor: pointer;
+  flex: 1;
+}
+
+.routine-item-info strong {
+  display: block;
+  font-size: 0.92rem;
+}
+
+.routine-item-info span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.routine-empty {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+}
+
+.drawer-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 토스트 / 提示条 */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+  z-index: 80;
+}
+
+/* 반응형 / 响应式布局 */
+@media (max-width: 1024px) {
+  .exercise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .etiquette-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .welcome-card {
+    padding: 32px 20px;
+  }
+
+  .welcome-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .etiquette-grid,
+  .guide-sections,
+  .modal-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .exercise-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .exercise-card {
+    padding: 11px;
+    border-radius: 16px;
+  }
+
+  .card-title-ko {
+    font-size: 0.88rem;
+  }
+
+  .card-title-zh {
+    font-size: 0.74rem;
+  }
+
+  .modal-illustration {
+    max-width: 210px;
+    margin: 0 auto;
+  }
+
+  .etiquette-footer {
+    padding: 12px 16px;
+  }
+}
+

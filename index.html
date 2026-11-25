@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FITGUIDE · 헬스 기구 &amp; 운동 가이드 / 健身器械与训练指南</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- 1. 입장 화면 / 欢迎入场页 -->
+    <section id="view-welcome" class="view view--active" aria-labelledby="welcome-title">
+      <div class="welcome-card">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="80" height="80" rx="22" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="2" />
+            <rect x="18" y="34" width="8" height="20" rx="3" fill="#0284C7" />
+            <rect x="27" y="28" width="8" height="32" rx="3.5" fill="#0F172A" />
+            <rect x="35" y="40" width="18" height="8" rx="3" fill="#38BDF8" />
+            <rect x="53" y="28" width="8" height="32" rx="3.5" fill="#0F172A" />
+            <rect x="62" y="34" width="8" height="20" rx="3" fill="#0284C7" />
+            <circle cx="44" cy="20" r="4" fill="#10B981" />
+          </svg>
+        </div>
+
+        <p class="brand-eyebrow">
+          <span>FITNESS GUIDEBOOK</span>
+          <span class="dot">·</span>
+          <span>헬스 입문 가이드 / 健身入门指南</span>
+        </p>
+
+        <h1 id="welcome-title" class="welcome-title">
+          <span class="ko-main">FITGUIDE</span>
+          <span class="bilingual-sub">한눈에 보는 헬스 머신 &amp; 프리웨이트 가이드 / 一目了然的健身器械与自由重量指南</span>
+        </h1>
+
+        <p class="welcome-desc">
+          <span class="ko">헬스장 기본 매너부터 머신 세팅, 정확한 프리웨이트 자세까지 직관적인 그림 카드로 쉽게 배워보세요.</span>
+          <span class="zh">从健身房基本礼仪到器械调节与自由重量标准动作，通过直观图文卡片轻松掌握。</span>
+        </p>
+
+        <div class="welcome-highlights" aria-label="주요 특징 / 主要特点">
+          <div class="highlight-pill">
+            <strong>20+</strong>
+            <span>머신·프리웨이트 / 器械与自由重量</span>
+          </div>
+          <div class="highlight-pill">
+            <strong>6</strong>
+            <span>부위별 동작 가이드 / 分部位动作指南</span>
+          </div>
+          <div class="highlight-pill">
+            <strong>한·중</strong>
+            <span>전 화면 이중언어 / 全界面韩中双语</span>
+          </div>
+        </div>
+
+        <button id="btn-enter" type="button" class="btn btn-primary btn-lg">
+          <span>입장</span>
+          <span class="btn-divider">/</span>
+          <span class="zh-inline">入场</span>
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. 헬스장 이용수칙 안내 화면 / 健身房使用须知页 -->
+    <section id="view-etiquette" class="view" aria-labelledby="etiquette-title" hidden>
+      <div class="etiquette-layout">
+        <header class="page-header">
+          <div class="step-badge">
+            <span>STEP 01 · 이용 전 안내 / 入场须知</span>
+          </div>
+          <h2 id="etiquette-title" class="page-title">
+            <span>헬스장 기본 매너 및 이용수칙</span>
+            <span class="title-zh">/ 健身房基本礼仪与使用须知</span>
+          </h2>
+          <p class="page-subtitle">
+            <span>모두가 쾌적하고 안전하게 운동할 수 있도록 기본 수칙을 먼저 확인해 주세요.</span>
+            <span class="zh-block">为了让大家都能安全舒适地锻炼，请先阅读以下基本礼仪规范。</span>
+          </p>
+        </header>
+
+        <div id="etiquette-grid" class="etiquette-grid" role="list"></div>
+
+        <div class="etiquette-notice" role="status">
+          <div class="notice-check">
+            <label class="checkbox-label">
+              <input id="etiquette-confirm-check" type="checkbox" />
+              <span>
+                <strong>위 이용수칙을 확인했습니다</strong>
+                <span class="zh-inline"> / 我已阅读并确认以上使用须知</span>
+              </span>
+            </label>
+          </div>
+          <p id="etiquette-hint" class="etiquette-hint">
+            <span>확인 체크를 하거나 우측 하단의 ‘다음 / 下一步’ 버튼을 눌러 운동 목록으로 이동하세요.</span>
+            <span class="zh-block">勾选确认或直接点击右下角“다음 / 下一步”按钮进入训练动作列表。</span>
+          </p>
+        </div>
+
+        <footer class="etiquette-footer">
+          <button id="btn-back-welcome" type="button" class="btn btn-ghost">
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M16 10H4M4 10L9 5M4 10L9 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>처음으로 / 返回首页</span>
+          </button>
+
+          <button id="btn-next-catalog" type="button" class="btn btn-primary btn-next">
+            <span>다음</span>
+            <span class="btn-divider">/</span>
+            <span class="zh-inline">下一步</span>
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </footer>
+      </div>
+    </section>
+
+    <!-- 3. 운동 · 머신 선택 화면 / 训练动作与器械选择页 -->
+    <section id="view-catalog" class="view" aria-labelledby="catalog-title" hidden>
+      <header class="topbar">
+        <div class="topbar-inner">
+          <button id="btn-logo-home" type="button" class="topbar-brand" title="처음 화면으로 / 返回首页">
+            <span class="mini-logo" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <rect x="2" y="2" width="28" height="28" rx="8" fill="#0EA5E9" />
+                <rect x="7" y="12" width="3" height="8" rx="1" fill="#FFFFFF" />
+                <rect x="11" y="10" width="2.5" height="12" rx="1" fill="#FFFFFF" />
+                <rect x="13.5" y="14.5" width="5" height="3" fill="#BAE6FD" />
+                <rect x="18.5" y="10" width="2.5" height="12" rx="1" fill="#FFFFFF" />
+                <rect x="22" y="12" width="3" height="8" rx="1" fill="#FFFFFF" />
+              </svg>
+            </span>
+            <span class="brand-text">
+              <strong>FITGUIDE</strong>
+              <small>헬스 가이드 / 健身指南</small>
+            </span>
+          </button>
+
+          <div class="topbar-actions">
+            <button id="btn-open-etiquette" type="button" class="btn btn-outline btn-sm">
+              <span>이용수칙</span>
+              <span class="zh-inline">/ 使用须知</span>
+            </button>
+            <button id="btn-open-routine" type="button" class="btn btn-secondary btn-sm">
+              <span>내 루틴</span>
+              <span class="zh-inline">/ 我的计划</span>
+              <span id="routine-count-badge" class="count-badge">0</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="catalog-main">
+        <div class="catalog-intro">
+          <div>
+            <h2 id="catalog-title" class="page-title">
+              <span>운동 &amp; 머신 선택</span>
+              <span class="title-zh">/ 选择训练动作与器械</span>
+            </h2>
+            <p class="page-subtitle">
+              <span>원하는 운동 동작 또는 머신 카드를 클릭하면 세팅법과 정확한 운동 방법을 확인할 수 있습니다.</span>
+              <span class="zh-block">点击下方任一动作或器械图标卡片，即可查看器械调节方法与标准动作指南。</span>
+            </p>
+          </div>
+
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.8" />
+              <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="운동명, 머신, 부위 검색 / 搜索动作、器械或部位..."
+              aria-label="운동명, 머신, 부위 검색 / 搜索动作、器械或部位"
+            />
+            <button id="btn-clear-search" type="button" class="search-clear" aria-label="검색어 지우기 / 清除搜索" hidden>✕</button>
+          </div>
+        </div>
+
+        <!-- 필터 영역 / 筛选区 -->
+        <div class="filter-bar" aria-label="운동 필터 / 训练筛选">
+          <div class="filter-group" role="group" aria-label="유형 선택 / 类别筛选">
+            <span class="filter-label">유형 / 类型</span>
+            <div id="type-filters" class="chip-row">
+              <button type="button" class="chip chip--active" data-type="all">전체 / 全部</button>
+              <button type="button" class="chip" data-type="machine">머신 / 器械</button>
+              <button type="button" class="chip" data-type="freeweight">프리웨이트 / 自由重量</button>
+            </div>
+          </div>
+
+          <div class="filter-group" role="group" aria-label="부위 선택 / 部位筛选">
+            <span class="filter-label">부위 / 部位</span>
+            <div id="body-filters" class="chip-row">
+              <button type="button" class="chip chip--active" data-part="all">전체 / 全部</button>
+              <button type="button" class="chip" data-part="chest">가슴 / 胸部</button>
+              <button type="button" class="chip" data-part="back">등 / 背部</button>
+              <button type="button" class="chip" data-part="legs">하체 / 腿部</button>
+              <button type="button" class="chip" data-part="shoulders">어깨 / 肩部</button>
+              <button type="button" class="chip" data-part="arms">팔 / 手臂</button>
+              <button type="button" class="chip" data-part="core">코어 / 核心</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-meta">
+          <p id="result-summary" class="result-summary"></p>
+        </div>
+
+        <!-- 정사각형 타일 카드 그리드 / 方形图标卡片网格 -->
+        <div id="exercise-grid" class="exercise-grid" role="list"></div>
+
+        <!-- 빈 검색 결과 안내 / 空结果提示 -->
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">🔍</div>
+          <h3>조건에 맞는 운동이 없습니다 / 未找到符合条件的训练动作</h3>
+          <p>다른 검색어를 입력하거나 필터를 초기화해 보세요. / 请尝试其他关键词或重置筛选条件。</p>
+          <button id="btn-reset-filters" type="button" class="btn btn-primary">
+            필터 초기화 / 重置筛选
+          </button>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <!-- 4. 운동 상세 가이드 모달 / 训练指南详情弹窗 -->
+  <div id="exercise-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-badges" id="modal-badges"></div>
+        <button id="btn-close-modal" type="button" class="icon-close-btn" aria-label="닫기 / 关闭">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-hero">
+          <div id="modal-illustration" class="modal-illustration"></div>
+          <div class="modal-title-block">
+            <h2 id="modal-title" class="modal-title"></h2>
+            <p id="modal-subtitle" class="modal-subtitle"></p>
+
+            <div class="muscle-card">
+              <div class="muscle-row">
+                <span class="label">주동근 / 主要肌群</span>
+                <strong id="modal-primary-muscle"></strong>
+              </div>
+              <div class="muscle-row">
+                <span class="label">협응근 / 协同肌群</span>
+                <span id="modal-secondary-muscle"></span>
+              </div>
+              <div class="muscle-row">
+                <span class="label">권장 세트 / 推荐组数</span>
+                <span id="modal-sets"></span>
+              </div>
+            </div>
+
+            <div class="modal-quick-actions">
+              <button id="btn-toggle-routine" type="button" class="btn btn-secondary">
+                <span id="routine-btn-text">내 루틴에 추가 / 加入我的计划</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-sections">
+          <article class="guide-box guide-box--setup">
+            <h3>
+              <span class="guide-icon" aria-hidden="true">⚙️</span>
+              <span>머신 세팅 및 준비 / 器械调节与准备</span>
+            </h3>
+            <ul id="modal-setup-list" class="guide-list"></ul>
+          </article>
+
+          <article class="guide-box guide-box--steps">
+            <h3>
+              <span class="guide-icon" aria-hidden="true">📋</span>
+              <span>운동 방법 (단계별 자세) / 动作步骤</span>
+            </h3>
+            <ol id="modal-steps-list" class="guide-list guide-list--ordered"></ol>
+          </article>
+
+          <article class="guide-box guide-box--breath">
+            <h3>
+              <span class="guide-icon" aria-hidden="true">🌬️</span>
+              <span>호흡법 / 呼吸方法</span>
+            </h3>
+            <p id="modal-breathing" class="guide-text"></p>
+          </article>
+
+          <article class="guide-box guide-box--caution">
+            <h3>
+              <span class="guide-icon" aria-hidden="true">⚠️</span>
+              <span>주의사항 및 흔한 실수 / 注意事项与常见错误</span>
+            </h3>
+            <ul id="modal-caution-list" class="guide-list"></ul>
+          </article>
+        </div>
+
+        <!-- 내장 세트 휴식 타이머 / 内置组间休息计时器 -->
+        <div class="timer-bar">
+          <div class="timer-info">
+            <strong>세트 휴식 타이머 / 组间休息计时器</strong>
+            <span id="timer-status" class="timer-status">대기 중 / 待机中</span>
+          </div>
+          <div class="timer-controls">
+            <span id="timer-display" class="timer-display">01:00</span>
+            <div class="timer-presets">
+              <button type="button" class="preset-btn preset-btn--active" data-seconds="60">60s</button>
+              <button type="button" class="preset-btn" data-seconds="90">90s</button>
+              <button type="button" class="preset-btn" data-seconds="120">120s</button>
+            </div>
+            <button id="btn-timer-start" type="button" class="btn btn-primary btn-sm">시작 / 开始</button>
+            <button id="btn-timer-reset" type="button" class="btn btn-ghost btn-sm">초기화 / 重置</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-prev-exercise" type="button" class="btn btn-outline btn-sm">
+          ← 이전 운동 / 上一个动作
+        </button>
+        <button id="btn-next-exercise" type="button" class="btn btn-outline btn-sm">
+          다음 운동 / 下一个动作 →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 내 루틴 서랍 / 我的训练计划抽屉 -->
+  <div id="routine-drawer" class="drawer-backdrop" role="dialog" aria-modal="true" aria-labelledby="routine-title" hidden>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div>
+          <h2 id="routine-title">오늘의 운동 루틴 / 今日训练计划</h2>
+          <p class="drawer-sub">선택한 운동을 모아 차례대로 확인하세요. / 汇总已选动作方便按顺序查看。</p>
+        </div>
+        <button id="btn-close-routine" type="button" class="icon-close-btn" aria-label="닫기 / 关闭">✕</button>
+      </div>
+
+      <div id="routine-list" class="routine-list"></div>
+
+      <div id="routine-empty" class="routine-empty" hidden>
+        <p>아직 루틴에 담은 운동이 없습니다.<br /><span class="zh-inline">暂未添加任何训练动作。</span></p>
+      </div>
+
+      <div class="drawer-footer">
+        <button id="btn-clear-routine" type="button" class="btn btn-outline btn-sm">전체 비우기 / 清空列表</button>
+        <button id="btn-close-routine-bottom" type="button" class="btn btn-primary btn-sm">확인 / 确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 알림 토스트 / 提示消息 -->
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="data.js"></script>
+  <script src="illustrations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
